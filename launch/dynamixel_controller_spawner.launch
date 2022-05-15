@@ -1,0 +1,47 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <!-- Load controller configuration to parameter server -->
+    <rosparam file="$(find shelob_syropod)/config/shelob_motors.yaml" command="load"/>
+    <include file="$(find dynamixel_joint_states_publisher)/launch/joint_states_publisher.launch" />
+        
+	
+    <!-- start specified joint controllers -->
+    <node name="dynamixel_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port=dynamixel_port              
+                --type=simple
+                /syropod/AL_coxa_joint
+                /syropod/AL_femur_joint
+                /syropod/AL_tibia_joint
+                /syropod/AL_tarsus_joint
+                /syropod/AR_coxa_joint
+                /syropod/AR_femur_joint
+                /syropod/AR_tibia_joint
+                /syropod/AR_tarsus_joint
+                /syropod/BL_coxa_joint
+                /syropod/BL_femur_joint
+                /syropod/BL_tibia_joint
+                /syropod/BL_tarsus_joint
+                /syropod/BR_coxa_joint
+                /syropod/BR_femur_joint
+                /syropod/BR_tibia_joint
+                /syropod/BR_tarsus_joint
+                /syropod/CL_coxa_joint
+                /syropod/CL_femur_joint
+                /syropod/CL_tibia_joint
+                /syropod/CL_tarsus_joint
+                /syropod/CR_coxa_joint
+                /syropod/CR_femur_joint
+                /syropod/CR_tarsus_joint
+                /syropod/DL_coxa_joint
+                /syropod/DL_femur_joint
+                /syropod/DL_tibia_joint
+                /syropod/DL_tarsus_joint
+                /syropod/DR_coxa_joint
+                /syropod/DR_femur_joint
+                /syropod/DR_tarsus_joint"
+          output="screen"
+    />
+
+</launch>

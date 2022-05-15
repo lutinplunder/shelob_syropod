@@ -1,0 +1,2546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="shelob_model">
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+		</plugin>
+    <plugin filename="libgazebo_ros_imu.so" name="imu_plugin">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>base_link</bodyName>
+      <topicName>imu/data</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>20.0</updateRate>
+    </plugin>
+  </gazebo>
+  <link name="dummy_link" />
+  <joint name="base_joint" type="fixed">
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.009181 0.000347 0.000983"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.7457" />
+      <inertia
+        ixx="0.001402"
+        ixy="0.000037"
+        ixz="0.000322"
+        iyy="0.003324"
+        iyz="-0.000004"
+        izz="0.004084" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Base_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Base_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="base_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <selfCollide>True</selfCollide>
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <link
+    name="AL_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AL_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AL_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="0.0652 0.0882 0.0000"
+      rpy="0.0000 0.0000 0.7436" />
+    <parent
+      link="base_link" />
+    <child
+      link="AL_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6981"
+      upper="0.5236"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AL_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AL_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AL_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AL_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AL_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AL_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="AL_coxa_link" />
+    <child
+      link="AL_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AL_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AL_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AL_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AL_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AL_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AL_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="AL_femur_link" />
+    <child
+      link="AL_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AL_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AL_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AL_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AL_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AL_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AL_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="AL_tibia_link" />
+    <child
+      link="AL_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AL_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AL_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AL_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BL_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BL_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BL_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0040 0.1128 0.0000"
+      rpy="0.0000 0.0000 1.6188" />
+    <parent
+      link="base_link" />
+    <child
+      link="BL_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.8727"
+      upper="0.3491"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BL_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BL_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BL_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BL_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BL_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BL_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="BL_coxa_link" />
+    <child
+      link="BL_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BL_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BL_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BL_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BL_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BL_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BL_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="BL_femur_link" />
+    <child
+      link="BL_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BL_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BL_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BL_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BL_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BL_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BL_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="BL_tibia_link" />
+    <child
+      link="BL_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BL_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BL_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BL_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CL_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CL_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CL_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0659 0.0908 0.0000"
+      rpy="0.0000 0.0000 2.2462" />
+    <parent
+      link="base_link" />
+    <child
+      link="CL_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.7854"
+      upper="0.4363"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CL_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CL_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CL_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CL_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CL_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CL_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="CL_coxa_link" />
+    <child
+      link="CL_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CL_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CL_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CL_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CL_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CL_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CL_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="CL_femur_link" />
+    <child
+      link="CL_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CL_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CL_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CL_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CL_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CL_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CL_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="CL_tibia_link" />
+    <child
+      link="CL_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CL_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CL_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CL_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DL_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DL_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DL_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1030 0.0610 0.0000"
+      rpy="0.0000 0.0000 2.2902" />
+    <parent
+      link="base_link" />
+    <child
+      link="DL_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6109"
+      upper="0.6109"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DL_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DL_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DL_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DL_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DL_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DL_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="DL_coxa_link" />
+    <child
+      link="DL_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DL_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DL_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DL_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DL_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DL_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DL_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="DL_femur_link" />
+    <child
+      link="DL_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DL_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DL_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DL_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DL_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DL_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DL_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="DL_tibia_link" />
+    <child
+      link="DL_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DL_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DL_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DL_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AR_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AR_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AR_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="0.0651 -0.0883 0.0000"
+      rpy="0.0000 0.0000 -0.7436" />
+    <parent
+      link="base_link" />
+    <child
+      link="AR_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5236"
+      upper="0.6981"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AR_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AR_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AR_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AR_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AR_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AR_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="AR_coxa_link" />
+    <child
+      link="AR_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AR_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AR_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AR_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AR_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AR_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AR_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="AR_femur_link" />
+    <child
+      link="AR_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AR_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AR_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AR_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="AR_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="AR_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="AR_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="AR_tibia_link" />
+    <child
+      link="AR_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="AR_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="AR_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="AR_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BR_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BR_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BR_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0041 -0.1129 0.0000"
+      rpy="0.0000 0.0000 -1.6188" />
+    <parent
+      link="base_link" />
+    <child
+      link="BR_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3491"
+      upper="0.8727"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BR_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BR_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BR_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BR_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BR_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BR_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="BR_coxa_link" />
+    <child
+      link="BR_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BR_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BR_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BR_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BR_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BR_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BR_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="BR_femur_link" />
+    <child
+      link="BR_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BR_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BR_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BR_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="BR_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="BR_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="BR_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="BR_tibia_link" />
+    <child
+      link="BR_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="BR_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BR_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BR_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CR_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CR_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CR_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0660 -0.0909 0.0000"
+      rpy="0.0000 0.0000 -2.2462" />
+    <parent
+      link="base_link" />
+    <child
+      link="CR_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.4363"
+      upper="0.7854"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CR_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CR_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CR_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CR_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CR_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CR_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="CR_coxa_link" />
+    <child
+      link="CR_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CR_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CR_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CR_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CR_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CR_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CR_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="CR_femur_link" />
+    <child
+      link="CR_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CR_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CR_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CR_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="CR_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="CR_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="CR_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="CR_tibia_link" />
+    <child
+      link="CR_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="CR_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="CR_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="CR_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DR_coxa_link">
+    <inertial>
+      <origin
+        xyz="0.012000 -0.000496 -0.000496"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.1020" />
+      <inertia
+        ixx="0.000021"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="-0.000001"
+        izz="0.000028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Coxa_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DR_coxa_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DR_coxa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1030 -0.0610 0.0000"
+      rpy="0.0000 0.0000 -2.2902" />
+    <parent
+      link="base_link" />
+    <child
+      link="DR_coxa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6109"
+      upper="0.6109"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DR_coxa_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DR_coxa_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DR_coxa_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DR_femur_link">
+    <inertial>
+      <origin
+        xyz="0.027500 -0.000014 0.000000"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.010820" />
+      <inertia
+        ixx="0.000005"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000010"
+        iyz="0.000000"
+        izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Femur_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DR_femur_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DR_femur_joint"
+    type="revolute">
+    <origin
+      xyz="0.0240 0.0000 0.0000"
+      rpy="1.5708 0.0000 0.0000" />
+    <parent
+      link="DR_coxa_link" />
+    <child
+      link="DR_femur_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1849"
+      upper="2.0588"
+      effort="1.8"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DR_femur_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DR_femur_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DR_femur_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DR_tibia_link">
+    <inertial>
+      <origin
+        xyz="0.014835 0.000005 0.000291"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.071445" />
+      <inertia
+        ixx="0.000010"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000023"
+        iyz="0.000000"
+        izz="0.000019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tibia_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DR_tibia_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DR_tibia_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="DR_femur_link" />
+    <child
+      link="DR_tibia_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2187"
+      upper="0.1444"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DR_tibia_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DR_tibia_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DR_tibia_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="DR_tarsus_link">
+    <inertial>
+      <origin
+        xyz="0.018253 0.000001 0.000256"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.081133" />
+      <inertia
+        ixx="0.000009"
+        ixy="0.000000"
+        ixz="0.000000"
+        iyy="0.000028"
+        iyz="0.000000"
+        izz="0.000026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Tarsus_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="DR_tarsus_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="DR_tarsus_joint"
+    type="revolute">
+    <origin
+      xyz="0.0550 0.0000 0.0000"
+      rpy="0.0000 0.0000 0.0000" />
+    <parent
+      link="DR_tibia_link" />
+    <child
+      link="DR_tarsus_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.7141"
+      upper="0.0630"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="DR_tarsus_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="DR_tarsus_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="DR_tarsus_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="Abdomen_link">
+    <inertial>
+      <origin
+        xyz="-0.101005 0.002262 0.000005"
+        rpy="0.0000 0.0000 0.0000" />
+      <mass
+        value="0.9350" />
+      <inertia
+        ixx="0.000599"
+        ixy="0.000001"
+        ixz="0.000000"
+        iyy="0.002000"
+        iyz="0.000000"
+        izz="0.001858" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Abdomen_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0000 0.0000 0.0000"
+        rpy="0.0000 0.0000 0.0000" />
+      <geometry>
+        <mesh
+          filename="package://shelob_syropod/meshes/Abdomen_Link.STL" />
+      </geometry>
+    </collision>
+    <gazebo reference="Abdomen_link">
+      <mu1>200</mu1>
+      <mu2>100</mu2>
+      <material>Gazebo/White</material>
+      <!-- <selfCollide>True</selfCollide> -->
+      <gravity>True</gravity>
+    </gazebo>
+  </link>
+  <joint
+    name="Abdomen_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1020 0.0000 0.0000"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Abdomen_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="1.9"
+      velocity="2.35619449" />
+  </joint>
+  <transmission name="Abdomen_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Abdomen_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Abdomen_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

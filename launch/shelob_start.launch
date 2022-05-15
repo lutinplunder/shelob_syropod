@@ -1,0 +1,12 @@
+<!-- -*- xml -*- -->
+
+<launch>
+
+	<!-- Motor drivers and controllers -->
+	<include file="$(find shelob_syropod)/launch/shelob_hardware.launch" />
+
+	<!-- Highlevel control -->
+	<include file="$(find shelob_syropod)/launch/shelob_highlevel.launch" />
+
+</launch>
+ 

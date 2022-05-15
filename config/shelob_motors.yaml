@@ -1,0 +1,443 @@
+joint_names: ['AR_coxa_joint', 'AR_femur_joint', 'AR_tibia_joint', 'AR_tarsus_joint',
+              'BR_coxa_joint', 'BR_femur_joint', 'BR_tibia_joint', 'BR_tarsus_joint',
+              'CR_coxa_joint', 'CR_femur_joint', 'CR_tibia_joint', 'CR_tarsus_joint',
+              'DR_coxa_joint', 'DR_femur_joint', 'DR_tibia_joint', 'DR_tarsus_joint',
+              'DL_coxa_joint', 'DL_femur_joint', 'DL_tibia_joint', 'DL_tarsus_joint',
+              'CL_coxa_joint', 'CL_femur_joint', 'CL_tibia_joint', 'CL_tarsus_joint',
+              'BL_coxa_joint', 'BL_femur_joint', 'BL_tibia_joint', 'BL_tarsus_joint',
+              'AL_coxa_joint', 'AL_femur_joint', 'AL_tibia_joint', 'AL_tarsus_joint',]
+
+syropod:
+#----------------------------------------------------------------------------
+
+        AR_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AR_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 11
+            init: 512
+            min: 0
+            max: 1023
+
+        AR_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AR_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 12
+            init: 512
+            min: 0
+            max: 1023
+
+        AR_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AR_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 13
+            init: 200
+            min: 1023
+            max: 0
+
+        AR_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AR_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 14
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        BR_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BR_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 21
+            init: 488
+            min: 0
+            max: 1023
+
+        BR_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BR_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 22
+            init: 512
+            min: 0
+            max: 1023
+
+        BR_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BR_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 23
+            init: 200
+            min: 1023
+            max: 0
+
+        BR_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BR_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 24
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        CR_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CR_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 31
+            init: 512
+            min: 0
+            max: 1023
+
+        CR_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CR_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 32
+            init: 512
+            min: 0
+            max: 1023
+
+        CR_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CR_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 33
+            init: 200
+            min: 1023
+            max: 0
+
+        CR_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CR_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 34
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        DR_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DR_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 41
+            init: 512
+            min: 0
+            max: 1023
+
+        DR_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DR_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 42
+            init: 512
+            min: 0
+            max: 1023
+
+        DR_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DR_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 43
+            init: 200
+            min: 1023
+            max: 0
+
+        DR_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DR_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 44
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        DL_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DL_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 51
+            init: 512
+            min: 0
+            max: 1023
+
+        DL_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DL_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 52
+            init: 512
+            min: 0
+            max: 1023
+
+        DL_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DL_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 53
+            init: 200
+            min: 1023
+            max: 0
+
+        DL_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: DL_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 54
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        CL_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CL_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 61
+            init: 512
+            min: 0
+            max: 1023
+
+        CL_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CL_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 62
+            init: 512
+            min: 1023
+            max: 0
+
+        CL_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CL_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 63
+            init: 824
+            min: 0
+            max: 1023
+
+        CL_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: CL_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 64
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        BL_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BL_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 71
+            init: 512
+            min: 0
+            max: 1023
+
+        BL_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BL_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 72
+            init: 512
+            min: 1023
+            max: 0
+
+        BL_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BL_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 73
+            init: 824
+            min: 0
+            max: 1023
+
+        BL_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: BL_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 74
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
+
+        AL_coxa_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AL_coxa_joint
+          joint_speed: 5.0
+          motor:
+            id: 81
+            init: 512
+            min: 0
+            max: 1023
+
+        AL_femur_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AL_femur_joint
+          joint_speed: 5.0
+          motor:
+            id: 82
+            init: 512
+            min: 1023
+            max: 0
+
+        AL_tibia_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AL_tibia_joint
+          joint_speed: 5.0
+          motor:
+            id: 83
+            init: 824
+            min: 0
+            max: 1023
+
+        AL_tarsus_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: AL_tarsus_joint
+          joint_speed: 5.0
+          motor:
+            id: 84
+            init: 200
+            min: 1023
+            max: 0
+
+#----------------------------------------------------------------------------
