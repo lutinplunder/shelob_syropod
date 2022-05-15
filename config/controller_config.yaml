@@ -23,7 +23,7 @@ global_torque_limit: 1.0          # maximum motor torque for all modes, given as
 ports:
 
   # PORT LIST
-  - name: Port_1               # name for this port in config
+  - name: U2D2               # name for this port in config
     device: /dev/ttyUSB0       # serial device this port will communicate on
     baudrate: 3000000          # baudrate in use
     use_legacy_protocol: false # wether to use new 2.0 protocol (false) or legacy 1.0 protocol (true)
@@ -31,28 +31,209 @@ ports:
     group_write_enabled: true  # specify whether to use group comms for writing
     servos:
       # SERVO LIST FOR THIS PORT
-      - id: 1                  # (ID set in servo eeprom, must be unique on this port)
-        joint_name: joint_1    # (MUST BE UNIQUE ACROSS ALL PORTS)
-        #
-        # The three values below are mandatory, they define the orientation and zeroing of the dynamixel:
-        #
+      - id: 11                 # (ID set in servo eeprom, must be unique on this port)
+        joint_name: AR_coxa_joint    # (MUST BE UNIQUE ACROSS ALL PORTS)
         zero_pos: 2048         # 0 rad servo position (in raw encoder count)
         min_pos: 0             # minimum servo position (in raw encoder count)
         max_pos: 4095          # maximum servo position, Note when MIN > MAX ROTATION IS REVERSED
-        #
-        # The below arguments are all optional and override the global values:
-        #
-        max_vel: 5.0           # maximum joint speed (rad/s) (in position or velocity control)
-        torque_limit: 1.0      # maximum motor torque for all modes, given as a fraction of rated max (0-1)
 
-      - id: 2
-        joint_name: joint_2
+      - id: 12
+        joint_name: AR_femur_joint
         zero_pos: 2048
         min_pos: 0
         max_pos: 4095
-        #
-        # This servo doesn't have any optional values defined, the global defaults will be used
-        #
+
+      - id: 13
+        joint_name: AR_tibia_joint
+        zero_pos: 2048
+        min_pos: 0
+        max_pos: 4095
+
+      - id: 14
+        joint_name: AR_tarsus_joint
+        zero_pos: 2048
+        min_pos: 0
+        max_pos: 4095
+
+#      - id: 21
+#        joint_name: BR_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 22
+#        joint_name: BR_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 23
+#        joint_name: BR_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 24
+#        joint_name: BR_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 31
+#        joint_name: CR_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 32
+#        joint_name: CR_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 33
+#        joint_name: CR_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 34
+#        joint_name: CR_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 41
+#        joint_name: DR_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 42
+#        joint_name: DR_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 43
+#        joint_name: DR_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 44
+#        joint_name: DR_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 51
+#        joint_name: DL_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 52
+#        joint_name: DL_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 53
+#        joint_name: DL_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 54
+#        joint_name: DL_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 61
+#        joint_name: CL_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 62
+#        joint_name: CL_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 63
+#        joint_name: CL_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 64
+#        joint_name: CL_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 71
+#        joint_name: BL_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 72
+#        joint_name: BL_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 73
+#        joint_name: BL_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 74
+#        joint_name: BL_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 81
+#        joint_name: AL_coxa_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 82
+#        joint_name: AL_femur_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 83
+#        joint_name: AL_tibia_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 84
+#        joint_name: AL_tarsus_joint
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+
+#      - id: 2
+#        joint_name: joint_2
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
+#
+#      - id: 2
+#        joint_name: joint_2
+#        zero_pos: 2048
+#        min_pos: 0
+#        max_pos: 4095
 
   # more ports can be defined in the same manner as above, each port can even have a different baudrate and protcol
   # - name: Port_2
@@ -64,14 +245,24 @@ ports:
   #   servos:
   #     - id: 1               # id only needs to be unique for each port and so id 1 can be reused here
   #       joint_name: joint_3 # name DOES have to be unique though, so we continue the namin_posg scheme
+  #       #
+  #       # The three values below are mandatory, they define the orientation and zeroing of the dynamixel:
+  #       #
   #       zero_pos: 512
   #       min_pos: 0
   #       max_pos: 1023
+  #       #
+  #       # The below arguments are all optional and override the global values:
+  #       #
+  #       max_vel: 5.0           # maximum joint speed (rad/s) (in position or velocity control)
+  #       torque_limit: 1.0      # maximum motor torque for all modes, given as a fraction of rated max (0-1)
 
   #     - id: 2
   #       joint_name: joint_4
   #       zero_pos: 512
   #       min_pos: 0
   #       max_pos: 1023
-
+  #       #
+  #       # This servo doesn't have any optional values defined, the global defaults will be used
+  #       #
 # --------------------------------------------------------------------------- # #
