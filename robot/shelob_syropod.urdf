@@ -54,7 +54,7 @@
   <joint name="vision_joint" type="fixed">
     <origin
       xyz="0.1175 0.0174 0.0336"
-      rpy="0.0000 1.4661 0.0000" />
+      rpy="-1.4661 0.0000 -1.5708" />
     <parent 
       link="base_link"/>
     <child 
