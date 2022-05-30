@@ -2081,6 +2081,7 @@
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
     <robotNamespace>/</robotNamespace>
+    <robotPram>/robot_description</robotPram>
     </plugin>
     <plugin filename="libgazebo_ros_imu.so" name="imu_plugin">
       <alwaysOn>true</alwaysOn>
@@ -2187,7 +2188,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  
+
   <gazebo reference="BL_femur_link">
     <mu1>200</mu1>
     <mu2>100</mu2>
