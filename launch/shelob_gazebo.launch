@@ -29,7 +29,8 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller
-                                        AL_coxa_joint 
+                                        Abdomen_joint
+                                        AL_coxa_joint
                                         AR_coxa_joint 
                                         BL_coxa_joint 
                                         BR_coxa_joint 
@@ -71,7 +72,8 @@
       -z 0.060
       -R 0.0 
       -P 0.0 
-      -Y 0.0 
+      -Y 0.0
+      -J Abdomen_joint 0.0
       -J AR_coxa_joint 0.0
       -J AR_femur_joint 0.0
       -J AR_tibia_joint 0.0

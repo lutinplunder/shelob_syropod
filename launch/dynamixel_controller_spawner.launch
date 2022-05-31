@@ -11,6 +11,7 @@
           args="--manager=dxl_manager
                 --port=dynamixel_port              
                 --type=simple
+                /syropod/Abdomen_joint
                 /syropod/AL_coxa_joint
                 /syropod/AL_femur_joint
                 /syropod/AL_tibia_joint

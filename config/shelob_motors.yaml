@@ -1,14 +1,28 @@
-joint_names: ['AR_coxa_joint', 'AR_femur_joint', 'AR_tibia_joint', 'AR_tarsus_joint',
-              'BR_coxa_joint', 'BR_femur_joint', 'BR_tibia_joint', 'BR_tarsus_joint',
-              'CR_coxa_joint', 'CR_femur_joint', 'CR_tibia_joint', 'CR_tarsus_joint',
-              'DR_coxa_joint', 'DR_femur_joint', 'DR_tibia_joint', 'DR_tarsus_joint',
-              'DL_coxa_joint', 'DL_femur_joint', 'DL_tibia_joint', 'DL_tarsus_joint',
-              'CL_coxa_joint', 'CL_femur_joint', 'CL_tibia_joint', 'CL_tarsus_joint',
-              'BL_coxa_joint', 'BL_femur_joint', 'BL_tibia_joint', 'BL_tarsus_joint',
-              'AL_coxa_joint', 'AL_femur_joint', 'AL_tibia_joint', 'AL_tarsus_joint',]
+joint_names: ['Abdomen_joint', 'AR_coxa_joint', 'AR_femur_joint', 'AR_tibia_joint',
+              'AR_tarsus_joint', 'BR_coxa_joint', 'BR_femur_joint', 'BR_tibia_joint',
+              'BR_tarsus_joint', 'CR_coxa_joint', 'CR_femur_joint', 'CR_tibia_joint',
+              'CR_tarsus_joint', 'DR_coxa_joint', 'DR_femur_joint', 'DR_tibia_joint',
+              'DR_tarsus_joint', 'DL_coxa_joint', 'DL_femur_joint', 'DL_tibia_joint',
+              'DL_tarsus_joint', 'CL_coxa_joint', 'CL_femur_joint', 'CL_tibia_joint',
+              'CL_tarsus_joint', 'BL_coxa_joint', 'BL_femur_joint', 'BL_tibia_joint',
+              'BL_tarsus_joint', 'AL_coxa_joint', 'AL_femur_joint', 'AL_tibia_joint',
+              'AL_tarsus_joint',]
 
 syropod:
 #----------------------------------------------------------------------------
+
+        Abdomen_joint:
+          controller:
+            package: dynamixel_controllers
+            module: joint_position_controller
+            type: JointPositionController
+          joint_name: Abdomen_joint
+          joint_speed: 5.0
+          motor:
+            id: 10
+            init: 512
+            min: 0
+            max: 1023
 
         AR_coxa_joint:
           controller:

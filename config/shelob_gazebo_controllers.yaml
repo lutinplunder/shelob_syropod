@@ -8,6 +8,11 @@ joint_state_controller:
 
 
 # HEAD
+Abdomen_joint:
+  type: effort_controllers/JointPositionController
+  joint: Abdomen_joint
+  pid: {p: 50.0, i: 0.01, d: 0.01}
+
 AL_coxa_joint:
   type: effort_controllers/JointPositionController
   joint: AL_coxa_joint
