@@ -22,6 +22,7 @@ syropod:
 ########################################################################################################################
     # Model parameters
     syropod_type: shelob_syropod
+    abdomen_id:   [Abdomen]
     leg_id:       [AR, BR, CR, DR, DL, CL, BL, AL] # leg_id_name (clockwise from front right leg)
     joint_id:     [coxa, femur, tibia, tarsus] # joint_id_name
     link_id:      [base, coxa, femur, tibia, tarsus] # link_id_name (always start with base) 
