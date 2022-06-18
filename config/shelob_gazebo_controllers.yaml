@@ -6,8 +6,6 @@ joint_state_controller:
 
 # Position Controllers ---------------------------------------
 
-
-# HEAD
 Abdomen_joint:
   type: effort_controllers/JointPositionController
   joint: Abdomen_joint
@@ -53,8 +51,6 @@ DR_coxa_joint:
   joint: DR_coxa_joint
   pid: {p: 50.0, i: 0.01, d: 0.01}
 
-
-
 AL_femur_joint:
   type: effort_controllers/JointPositionController
   joint: AL_femur_joint
@@ -94,8 +90,6 @@ DR_femur_joint:
   type: effort_controllers/JointPositionController
   joint: DR_femur_joint
   pid: {p: 50.0, i: 0.01, d: 0.01}
-
-
 
 AL_tibia_joint:
   type: effort_controllers/JointPositionController
@@ -137,8 +131,6 @@ DR_tibia_joint:
   joint: DR_tibia_joint
   pid: {p: 50.0, i: 0.01, d: 0.01}
 
-
-  
 AR_tarsus_joint:
   type: effort_controllers/JointPositionController
   joint: AR_tarsus_joint

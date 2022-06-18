@@ -8,7 +8,7 @@ syropod:
     # Control parameters
     time_delta:         0.01
     manual_posing:      true
-    auto_posing:        false
+    auto_posing:        true
     rough_terrain_mode: false
     admittance_control: false
     inclination_posing: false #requires imu
@@ -25,55 +25,56 @@ syropod:
     abdomen_id:   [Abdomen]
     leg_id:       [AR, BR, CR, DR, DL, CL, BL, AL] # leg_id_name (clockwise from front right leg)
     joint_id:     [coxa, femur, tibia, tarsus] # joint_id_name
-    link_id:      [base, coxa, femur, tibia, tarsus] # link_id_name (always start with base) 
+    link_id:      [base, coxa, femur, tibia, tarsus] # link_id_name (always start with base)
     leg_DOF:      {AR: 4, BR: 4, CR: 4, DR: 4, DL: 4, CL: 4, BL: 4, AL: 4} # leg_id_name: degrees_of_freedom (num joints)
 
     # Joint parameters:
     Abdomen_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
 
-    AR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.191, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    AR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    AR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    AR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    AR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.191, packed_0:  0.000, packed_1: -0.636, unpacked:  0.717, max_vel: 6.700}
+    AR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.955, max_vel: 6.700}
+    AR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.270, max_vel: 10.00}
+    AR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.765, max_vel: 10.00}
 
-    BR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.013, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    BR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    BR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    BR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    BR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.013, packed_0:  0.000, packed_1: -0.236, unpacked:  0.746, max_vel: 6.700}
+    BR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.995, max_vel: 6.700}
+    BR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.307, max_vel: 10.00}
+    BR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.828, max_vel: 10.00}
 
-    CR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.048, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    CR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    CR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    CR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    CR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.048, packed_0:  0.000, packed_1:  0.078, unpacked:  0.241, max_vel: 6.700}
+    CR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.996, max_vel: 6.700}
+    CR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.307, max_vel: 10.00}
+    CR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.829, max_vel: 10.00}
 
-    DR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.032, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    DR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    DR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    DR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    DR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.032, packed_0:  0.000, packed_1:  0.486, unpacked: -0.067, max_vel: 6.700}
+    DR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.981, max_vel: 6.700}
+    DR_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.294, max_vel: 10.00}
+    DR_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  1.000, unpacked: -0.806, max_vel: 10.00}
     
-    AL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.191, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    AL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    AL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    AL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    AL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.191, packed_0:  0.000, packed_1:  0.636, unpacked: -0.790, max_vel: 6.700}
+    AL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.966, max_vel: 6.700}
+    AL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.280, max_vel: 10.00}
+    AL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.781, max_vel: 10.00}
 
-    BL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.013, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    BL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    BL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    BL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    BL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.013, packed_0:  0.000, packed_1:  0.236, unpacked: -0.849, max_vel: 6.700}
+    BL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.940, max_vel: 6.700}
+    BL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.256, max_vel: 10.00}
+    BL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.743, max_vel: 10.00}
 
-    CL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.048, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    CL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    CL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    CL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    CL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.048, packed_0:  0.000, packed_1: -0.078, unpacked: -0.291, max_vel: 6.700}
+    CL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.976, max_vel: 6.700}
+    CL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.290, max_vel: 10.00}
+    CL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.785, unpacked: -0.798, max_vel: 10.00}
     
-    DL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.023, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
-    DL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    DL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.571, unpacked:  0.000, max_vel: 5.000}
-    DL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
+    DL_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset: -0.023, packed_0:  0.000, packed_1: -0.486, unpacked: -0.035, max_vel: 6.700}
+    DL_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  1.018, max_vel: 6.700}
+    DL_tibia_joint_parameters:  {min: -2.2422, max:  0.0960, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked: -1.327, max_vel: 10.00}
+    DL_tarsus_joint_parameters: {min: -1.6779, max:  0.6045, offset:  0.000, packed_0:  0.000, packed_1:  1.000, unpacked: -0.866, max_vel: 10.00}
     
     # Link DH parameters: en.wikipedia.org/wiki/Denavit–Hartenberg_parameters 
     # Ensure theta values are within joint limits(Modified according to the new model)
-    Abdomen_link_parameters:    {d:  0.000, theta: 3.1416, r:  0.1020, alpha:  1.571}
+    Abdomen_base_link_parameters:  {d:  0.000, theta: 3.142, r:  0.1020, alpha:  0.000}
+    Abdomen_link_parameters:       {d:  0.000, theta: 0.000, r:  0.0000, alpha:  1.571}
 
     AR_base_link_parameters:    {d:  0.000, theta: -0.935, r:  0.1098, alpha:  0.000}
     AR_coxa_link_parameters:    {d:  0.000, theta:  0.000, r:  0.0240, alpha:  1.571}
@@ -124,14 +125,14 @@ syropod:
     DL_tarsus_link_parameters:  {d:  0.000, theta:  0.000, r:  0.0550, alpha:  0.000}
     
     clamp_joint_positions:  true
-    clamp_joint_velocities: false
+    clamp_joint_velocities: true
     ignore_IK_warnings:     false
 
 ########################################################################################################################
     # Walker parameters
     gait_type:            tetrapod_gait
     body_clearance:       0.0508
-    step_frequency:       {default:  2.500, min:  0.001, max:  5.000, step:  0.100} #Reconfigurable
+    step_frequency:       {default:  1.100, min:  0.001, max:  5.000, step:  0.100} #Reconfigurable
     swing_height:         {default:  0.045, min:  0.010, max:  0.180, step:  0.010} #Reconfigurable
     swing_width:          {default:  0.000, min: -0.300, max:  0.300, step:  0.010} #Reconfigurable
     step_depth:           {default:  0.000, min:  0.000, max:  0.000, step:  0.000} #Reconfigurable
@@ -153,7 +154,7 @@ syropod:
     BL_stance_position: {x:  0.085, y:  0.209}
     AL_stance_position: {x:  0.194, y:  0.112}
 
-    overlapping_walkspaces: true
+    overlapping_walkspaces: false
     force_normal_touchdown: false
     gravity_aligned_tips:   false
     touchdown_threshold:    0.9
@@ -162,8 +163,8 @@ syropod:
 ########################################################################################################################
     # Poser parameters
     auto_pose_type:           auto
-    start_up_sequence:        false
-    time_to_start:            5.000
+    start_up_sequence:        true
+    time_to_start:            1.000
     rotation_pid_gains:       {p:  1.000, i:  0.010, d: -0.050}
     max_translation:          {x:  0.500, y:  0.100, z:  0.200}
     max_rotation:             {roll: 0.5, pitch: 0.5, yaw: 0.08}

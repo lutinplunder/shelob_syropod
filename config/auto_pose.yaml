@@ -62,8 +62,8 @@ syropod:
 
       x_amplitudes:       [ 0.000,  0.000]
       y_amplitudes:       [ 0.000,  0.000]
-      z_amplitudes:       [ 0.010,  0.010]
-      roll_amplitudes:    [-0.050,  0.050]
+      z_amplitudes:       [ 0.000,  0.000]
+      roll_amplitudes:    [ 0.000,  0.000]
       pitch_amplitudes:   [ 0.000,  0.000]
       yaw_amplitudes:     [ 0.000,  0.000]
       gravity_amplitudes: [ 0.000,  0.000]
