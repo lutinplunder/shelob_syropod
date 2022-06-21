@@ -164,7 +164,7 @@ syropod:
     # Poser parameters
     auto_pose_type:           auto
     start_up_sequence:        true
-    time_to_start:            1.000
+    time_to_start:            5.000
     rotation_pid_gains:       {p:  1.000, i:  0.010, d: -0.050}
     max_translation:          {x:  0.500, y:  0.100, z:  0.200}
     max_rotation:             {roll: 0.5, pitch: 0.5, yaw: 0.08}
@@ -192,7 +192,7 @@ syropod:
     debug_swing_trajectory:       false
     debug_stance_trajectory:      false
     debug_execute_sequence:       false
-    debug_workspace_calculations: false
+    debug_workspace_calculations: true
     debug_ik:                     false
     debug_rviz:                   true
 
