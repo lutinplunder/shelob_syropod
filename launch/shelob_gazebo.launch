@@ -74,38 +74,38 @@
       -P 0.0 
       -Y 0.0
       -J Abdomen_joint 0.0
-      -J AR_coxa_joint 0.0
-      -J AR_femur_joint 0.0
-      -J AR_tibia_joint 0.0
-      -J AR_tarsus_joint 0.0
-      -J BR_coxa_joint 0.0
-      -J BR_femur_joint 0.0
-      -J BR_tibia_joint 0.0
-      -J BR_tarsus_joint 0.0
-      -J CR_coxa_joint 0.0
-      -J CR_femur_joint 0.0
-      -J CR_tibia_joint 0.0
-      -J CR_tarsus_joint 0.0
-      -J DR_coxa_joint 0.0
-      -J DR_femur_joint 0.0
-      -J DR_tibia_joint 0.0
-      -J DR_tarsus_joint 0.0
-      -J DL_coxa_joint 0.0
-      -J DL_femur_joint 0.0
-      -J DL_tibia_joint 0.0
-      -J DL_tarsus_joint 0.0
-      -J CL_coxa_joint 0.0
-      -J CL_femur_joint 0.0
-      -J CL_tibia_joint 0.0
-      -J CL_tarsus_joint 0.0
-      -J BL_coxa_joint 0.0
-      -J BL_femur_joint 0.0
-      -J BL_tibia_joint 0.0
-      -J BL_tarsus_joint 0.0
-      -J AL_coxa_joint 0.0
-      -J AL_femur_joint 0.0
-      -J AL_tibia_joint 0.0
-      -J AL_tarsus_joint 0.0" respawn="false" output="screen"/>
+      -J AR_coxa_joint -0.636
+      -J AR_femur_joint 1.371
+      -J AR_tibia_joint 1.371
+      -J AR_tarsus_joint 0.785
+      -J BR_coxa_joint -0.236
+      -J BR_femur_joint 1.371
+      -J BR_tibia_joint 1.371
+      -J BR_tarsus_joint 0.785
+      -J CR_coxa_joint 0.078
+      -J CR_femur_joint 1.371
+      -J CR_tibia_joint 1.371
+      -J CR_tarsus_joint 0.785
+      -J DR_coxa_joint 0.486
+      -J DR_femur_joint 1.371
+      -J DR_tibia_joint 1.371
+      -J DR_tarsus_joint 0.785
+      -J DL_coxa_joint -0.486
+      -J DL_femur_joint 1.371
+      -J DL_tibia_joint 1.371
+      -J DL_tarsus_joint 0.785
+      -J CL_coxa_joint -0.078
+      -J CL_femur_joint 1.371
+      -J CL_tibia_joint 1.371
+      -J CL_tarsus_joint 0.785
+      -J BL_coxa_joint 0.236
+      -J BL_femur_joint 1.371
+      -J BL_tibia_joint 1.371
+      -J BL_tarsus_joint 0.785
+      -J AL_coxa_joint 0.636
+      -J AL_femur_joint 1.371
+      -J AL_tibia_joint 1.371
+      -J AL_tarsus_joint 0.785" respawn="false" output="screen"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">

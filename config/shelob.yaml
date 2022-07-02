@@ -192,7 +192,7 @@ syropod:
     debug_swing_trajectory:       false
     debug_stance_trajectory:      false
     debug_execute_sequence:       false
-    debug_workspace_calculations: true
+    debug_workspace_calculations: false
     debug_ik:                     false
     debug_rviz:                   true
 
