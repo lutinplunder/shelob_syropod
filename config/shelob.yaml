@@ -22,14 +22,12 @@ syropod:
 ########################################################################################################################
     # Model parameters
     syropod_type: shelob_syropod
-    abdomen_id:   [Abdomen]
     leg_id:       [AR, BR, CR, DR, DL, CL, BL, AL] # leg_id_name (clockwise from front right leg)
     joint_id:     [coxa, femur, tibia, tarsus] # joint_id_name
     link_id:      [base, coxa, femur, tibia, tarsus] # link_id_name (always start with base)
     leg_DOF:      {AR: 4, BR: 4, CR: 4, DR: 4, DL: 4, CL: 4, BL: 4, AL: 4} # leg_id_name: degrees_of_freedom (num joints)
 
     # Joint parameters:
-    Abdomen_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.000, packed_0:  0.000, packed_1:  0.000, unpacked:  0.000, max_vel: 5.000}
 
     AR_coxa_joint_parameters:   {min: -2.3550, max:  2.3550, offset:  0.191, packed_0:  0.000, packed_1: -0.636, unpacked:  0.717, max_vel: 6.700}
     AR_femur_joint_parameters:  {min: -0.1269, max:  1.7672, offset:  0.000, packed_0:  0.785, packed_1:  1.371, unpacked:  0.955, max_vel: 6.700}
@@ -73,8 +71,6 @@ syropod:
     
     # Link DH parameters: en.wikipedia.org/wiki/Denavit–Hartenberg_parameters 
     # Ensure theta values are within joint limits(Modified according to the new model)
-    Abdomen_base_link_parameters:  {d:  0.000, theta: 3.142, r:  0.1020, alpha:  0.000}
-    Abdomen_link_parameters:       {d:  0.000, theta: 0.000, r:  0.0000, alpha:  1.571}
 
     AR_base_link_parameters:    {d:  0.000, theta: -0.935, r:  0.1098, alpha:  0.000}
     AR_coxa_link_parameters:    {d:  0.000, theta:  0.000, r:  0.0240, alpha:  1.571}
